@@ -22,11 +22,6 @@
     --fw-400: 400;
     --fw-700: 700;
 }
-@media (prefers-color-scheme: dark) {
-    :root {
-        --neutral-200: hsl(185, 41%, 10%);
-    }
-}
 
 /* Placehoader  */
 ::placeholder {
