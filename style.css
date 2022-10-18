@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+/* Custom Properties  */
+:root {
+    --primary-400: hsl(172, 67%, 45%);
+    --secondary-400: hsl(183, 100%, 15%);
+    --neutral-100: hsl(189, 41%, 97%);
+    --neutral-200: hsl(185, 41%, 84%);
+    --text-100: hsl(184, 14%, 56%);
+    --text-200: hsl(186, 14%, 43%);
+    --white: hsl(0, 0%, 100%);
+
+    --transition-1s: all 1s ease;
+    --transition-1-5s: all 1.5s ease;
+    --ff-primary: 'Space Mono', monospace;
+
+    --size-300: 0.8125rem;
+    --size-400: 1rem;
+    --size-500: 1.25rem;
+    --size-600: 1.5rem;
+    --size-700: 2rem;
+
+    --fw-400: 400;
+    --fw-700: 700;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --neutral-200: hsl(185, 41%, 10%);
+    }
+}
+
+/* Placehoader  */
+::placeholder {
+    color: var(--secondary-400);
+}
+/* CSS Reset  */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* General Styling  */
+body {
+    display: grid;
+    place-content: center;
+    font-weight: var(--fw-700);
+    font-family: var(--ff-primary);
+    background: var(--neutral-200);
+    transition: var(--transition-2s);
+}
+
+/* Header  */
+header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem 0;
+    justify-content: space-between;
+}
+
+/* Main  */
+main {
+    gap: 2rem;
+    width: 100%;
+    border: none;
+    display: grid;
+    max-width: 800px;
+    margin-block: 2rem 0rem;
+    background: var(--white);
+    padding: 2rem 2rem 1.5rem;
+    transition: var(--transition-1s);
+    border-radius: 1.25rem 1.25rem 0rem 0rem;
+    box-shadow: 10px 10px 45px 0 rgba(22, 22, 22, 0.2);
+}
+@media (min-width: 40em) {
+    main {
+        width: 573px;
+        border-radius: 1.25rem;
+        margin-block-end: 2rem;
+    }
+}
+@media (min-width: 52em) {
+    main {
+        width: 800px;
+        display: flex;
+        
+    }
+    .selection-container, .result-box{
+        width: 50%;
+    }
+}
+
+/* Selection Container  */
+.selection-container {
+    gap: 1.25rem;
+    display: grid;
+}
+.selection-container p {
+    color: var(--text-200);
+}
+
+/* Inputs */
+.inputs {
+    display: flex;
+    align-items: center;
+    padding-inline: 1rem;
+    border-radius: .25rem;
+    transition: all 500ms ease;
+    margin-block-start: 1rem;
+    border: 3px solid transparent;
+    background-color: var(--neutral-100);
+}
+.inputs:hover {
+    transform: scale(0.97) translateY(-3px);
+    box-shadow: 0 5px 15px rgba(22, 22, 22, 0.05);
+}
+.inputs:focus-within {
+    border: 3px solid var(--primary-400);
+    transform: scale(0.99) translateY(-6px);
+    box-shadow: 0 5px 15px rgba(22, 22, 22, 0.05);
+}
+.inputs > input {
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: right;
+    font-size: var(--size-600);
+    color: var(--secondary-400);
+    background-color: transparent;
+    transition: var(--transition-1s);   
+}
+
+/* Buttons  */
+.buttons-grid {
+    gap: 0.7rem;
+    display: grid;
+    margin-block-start: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+.buttons-grid > input {
+    width: 100%;
+    outline: none;
+    text-align: right;
+    padding-inline: 1rem;
+    border-radius: .35rem;
+    transition: all .5s ease;
+    font-size: var(--size-500);
+    color: var(--secondary-400);
+    border: 3px solid transparent;
+    background-color: var(--neutral-100);
+}
+.buttons-grid > input:hover {
+    border: 2px solid var(--primary-400);
+    transform: scale(1.02) translateY(2px);
+    box-shadow: 0 5px 10px rgba(22, 22, 22, 0.025);
+}
+.buttons-grid > input:focus-within {
+    border: 3px solid var(--primary-400);
+    transform: scale(0.99) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(22, 22, 22, 0.05);
+}
+.buttons-grid > input::placeholder {
+    color: var(--text-200);
+}
+@media (min-width: 52em) {
+    .buttons-grid {
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.btn {
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    border-radius: 0.35rem;
+    padding-block: 0.25rem;
+    transition: all .5s ease;
+    font-size: var(--size-500);
+    background-color: var(--secondary-400);
+}
+
+/* Reset Button  */
+.reset {
+    width: 100%;
+    opacity: 0.25;
+    color: var(--secondary-400);
+    background-color: var(--primary-400);
+}
+.btn:is(:hover, :focus-within) {
+    color: var(--secondary-400);
+    background-color: var(--primary-400);
+}
+.btn:hover {
+    transform: scale(1.04) translateY(-5px);
+    box-shadow: 0 5px 15px rgb(22, 22, 22, 0.05);
+}
+.btn:focus-within {
+    transform: scale(1.01) translateY(-2px);
+    box-shadow: 0 5px 15px rgb(22, 22, 22, 0.07);
+}
+
+/* Result Box */
+.result-box {
+    border: none;
+    display: flex;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color:hsl(183, 100%, 15%)
+}
+@media (min-width: 45em) {
+    .result-box {
+        padding-block: 2rem;
+    }
+}
+.amount {
+    display: flex;
+    padding-inline: 1rem;
+    align-items: flex-start;
+    color: var(--primary-400);
+    justify-content: space-between;
+}
+.amount-title h3 {
+    color: var(--neutral-100);
+    font-size: var(--size-400);
+}
+.amount-title h3 > h4 {
+    font-size: var(--size-300);
+}
+.amount-title {
+    color: var(--text-100);
+}
+.amount-number {
+    font-size: var(--size-500);
+}
+
+/* Media Quire For Font sizes  */
+@media (min-width: 45em) {
+    .inputs > input {
+        font-size: var(--size-700);
+    }
+    .amount-title h3 {
+        font-size: 19px;
+    }
+    .amount-title h3 > h4 {
+        font-size: var(--size-400);
+    }
+    .amount-number {
+        font-size: var(--size-600);
+    }
+}
+/* Margin Utility class  */
+.margin-block-400 {
+    margin-block: 1.5rem 2rem;
+}
