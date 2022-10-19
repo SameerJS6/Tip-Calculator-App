@@ -130,7 +130,7 @@ main {
     border: none;
     display: grid;
     max-width: 800px;
-    margin-block: 2rem 0rem;
+    margin-block-start: 2rem;
     background: var(--white);
     padding: 2rem 2rem 1.5rem;
     transition: var(--transition-1s);
