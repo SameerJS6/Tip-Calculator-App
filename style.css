@@ -7,6 +7,7 @@
     --neutral-200: hsl(185, 41%, 84%);
     --text-100: hsl(184, 14%, 56%);
     --text-200: hsl(186, 14%, 43%);
+    --text-error: red;
     --white: hsl(0, 0%, 100%);
 
     --transition-1s: all 1s ease;
@@ -22,7 +23,16 @@
     --fw-400: 400;
     --fw-700: 700;
 }
-
+@media (prefers-color-scheme: dark) {
+    :root {
+     --primary-400: hsl(172, 67%, 45%);
+    --secondary-400: hsl(183, 100%, 15%);
+    --neutral-100: hsl(189, 41%, 97%);
+    --neutral-200: #3F7856;
+    --text-100: hsl(184, 14%, 56%);
+    --text-200: hsl(186, 14%, 43%);
+    }
+}
 /* Placehoader  */
 ::placeholder {
     color: var(--secondary-400);
@@ -175,6 +185,9 @@ main {
     border: 3px solid transparent;
     background-color: var(--neutral-100);
 }
+.inputs[data-error = "true"] {
+    border: 2px solid var(--text-error);
+}
 .inputs:hover {
     transform: scale(0.97) translateY(-3px);
     box-shadow: 0 5px 15px rgba(22, 22, 22, 0.05);
@@ -262,6 +275,19 @@ main {
 .btn:focus-within {
     transform: scale(1.01) translateY(-2px);
     box-shadow: 0 5px 15px rgb(22, 22, 22, 0.07);
+}
+
+/* Number of People  */
+.message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.message h3 {
+    display: none;
+    font-size: 14px;
+    color: var(--text-error);
+    font-weight: var(--fw-700);
 }
 
 /* Result Box */
