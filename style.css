@@ -133,7 +133,10 @@ header {
 
 /* Theme toggler button  */
 .theme-toggle {
+    border: none;
     cursor: pointer;
+    border-radius: 0.35rem;
+    padding: 0.25rem .5rem;
     transition: var(--transition-1s);
 }
 
@@ -349,3 +352,29 @@ main {
 .margin-block-400 {
     margin-block: 1.5rem 2rem;
 }
+
+/* Ripple Effect  */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+span{
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: animate 1s linear;
+  }
+  @keyframes animate {
+    0%{
+      width: 0px;
+      height: 0px;
+      opacity: .3;
+    }
+    100%{
+      width: 500px;
+      height: 500px;
+      opacity: 0;
+    }
+  }
