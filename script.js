@@ -29,15 +29,31 @@ ResetBtn.addEventListener('click', ()=> {
     Reset();
 })
 
-// Temp 
+// For Dark Theme Toggle 
+let darkMode = localStorage.getItem('darkMode');
+const themeBtn = document.querySelector("[data-theme]");
 
-// const themeToggler = document.querySelector('[data-theme]');
+const EnableDarkMode = () => {
+    themeBtn.innerHTML = "Dark"
+    localStorage.setItem('darkMode', 'enabled');
+    document.body.classList.add('Darkmode');
+}
 
-// themeToggler.addEventListener('click', ()=> {
-//     if(window.matchMedia('prefers-color-scheme: dark').matches) {
-//         document.body.classList.add('DarkMode');
-//     } else {
-//         document.body.classList.remove('DarkMode');
-//     }
-//     console.log("dark")
-// })
+const DisableDarkMode = () => {
+    themeBtn.innerHTML = "Light"
+    localStorage.setItem("darkMode", 'disabled');
+    document.body.classList.remove("Darkmode");
+}   
+
+if (darkMode == 'enabled') {
+    EnableDarkMode();
+}
+themeBtn.addEventListener('click', ()=> {
+    darkMode = localStorage.getItem('darkMode')
+    if(darkMode == "enabled") {
+        DisableDarkMode();
+        console.log(darkMode)
+    } else {
+        EnableDarkMode();
+    }
+})
