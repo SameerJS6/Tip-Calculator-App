@@ -24,6 +24,9 @@ TipsBtn.forEach(btn => {
 // Custom User Tip 
 CustomTips.addEventListener('input', CustomTipValue);
 
+// Number of People Input 
+People.addEventListener('input', NumberofPeople);
+
 // Below Function is used to validate the User AmountInput.
 function ValidateAmount(p) {
     var regExp = /^[0-9]*\.?[0-9]*$/;  //A Global Search for numbers that are not from 0 to 9;
@@ -88,4 +91,30 @@ function CustomTipValue() {
     TipValue = parseFloat(CustomTips.value/100);
     calculateTip();
     // console.log(TipValue);
+}
+
+// Function For Tips Button
+function NumberofPeople() {
+    // Validting the number of people 
+    if(ValidateValue(People.value)) {
+        console.log("No People Valid");
+    } else {
+        console.log("No People Invalid");
+        People.value = People.value.substring(0,People.value.length-1);
+    }
+    NumberPeople = parseFloat(People.value);
+
+    if(NumberPeople == 0 || NumberPeople < 1 || NumberPeople == NaN) {
+        Errors.style.display = 'block';
+        NoPeopleDiv.setAttribute('data-error', 'true');
+        setTimeout(() => {
+            NoPeopleDiv.setAttribute('data-error', 'false');
+            NoPeopleDiv.classList.add('error-bg');
+        }, 3000)
+    }else {
+        Errors.style.display = 'none';
+        NoPeopleDiv.classList.remove('error-bg');
+    }
+    calculateTip();
+    // console.log(People.value);
 }
