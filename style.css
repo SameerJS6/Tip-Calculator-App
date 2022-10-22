@@ -224,6 +224,11 @@ main {
     transform: scale(0.99) translateY(-6px);
     box-shadow: 0 5px 15px rgba(22, 22, 22, 0.05);
 }
+.error-bg {
+    color: hsl(0, 94%, 49%);
+    background-color: hsl(0, 100%, 88%);
+}
+
 .inputs > input {
     width: 100%;
     border: none;
@@ -292,18 +297,19 @@ main {
     background-color: var(--primary-400);
 }
 
-/* .btn:is(:hover, :focus-within) {
+.btn:is(:hover, :focus-within) {
     color: var(--secondary-400);
     background-color: var(--primary-400);
-} */
+}
 .btn:hover {
     transform: scale(1.04) translateY(-5px);
     box-shadow: 0 5px 15px rgb(22, 22, 22, 0.05);
 }
-/* .btn:focus-within {
+.btn:focus-visible {
+    outline: none;
     transform: scale(1.01) translateY(-2px);
     box-shadow: 0 5px 15px rgb(22, 22, 22, 0.07);
-} */
+}
 .btn-active {
     color: var(--secondary-400);
     background-color: var(--primary-400);
@@ -369,9 +375,9 @@ main {
 .amount-title {
     color: var(--text-100);
 }
-.amount-number {
+/* .amount-number {
     font-size: var(--size-500);
-}
+} */
 
 /* Media Quire For Font sizes  */
 @media (min-width: 45em) {
