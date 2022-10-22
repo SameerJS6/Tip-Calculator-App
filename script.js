@@ -126,3 +126,32 @@ function calculateTip() {
     TipPerson.innerHTML = '$' + TipAmount.toFixed(2);
     TotalPerson.innerHTML = '$' + TotalAmount.toFixed(2);
 }
+
+// For Dark Mode Theme Toggler 
+let DarkMode = localStorage.getItem('darkMode');
+const ThemeBtn = document.querySelector('[data-theme]');
+
+const EnableDarkMode = () => {
+    themeBtn.innerHTML = 'Dark';
+    document.body.classList.add('Darkmode');
+    localStorage.setItem('darkMode', 'enabled');
+}
+
+const DisableDarkMode = () => {
+    themeBtn.innerHTML = 'Light';
+    document.body.classList.remove('Darkmode');
+    localStorage.setItem('darkMode', 'disabled');
+}
+
+if(DarkMode == 'enabled') {
+    EnableDarkMode();
+}
+
+ThemeBtn.addEventListener('click', ()=> {
+    darkMode = localStorage.getItem('darkMode');
+    if(DarkMode == 'enabled') {
+        DisableDarkMode();
+    } else {
+        EnableDarkMode();
+    }
+});
