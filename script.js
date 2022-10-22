@@ -118,3 +118,11 @@ function NumberofPeople() {
     calculateTip();
     // console.log(People.value);
 }
+
+// Function For Calculating the tip 
+function calculateTip() {
+    let TipAmount = billValue * TipValue / NumberPeople;
+    let TotalAmount = billValue + (billValue * TipValue);
+    TipPerson.innerHTML = '$' + TipAmount.toFixed(2);
+    TotalPerson.innerHTML = '$' + TotalAmount.toFixed(2);
+}
