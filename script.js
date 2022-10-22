@@ -27,6 +27,9 @@ CustomTips.addEventListener('input', CustomTipValue);
 // Number of People Input 
 People.addEventListener('input', NumberofPeople);
 
+// Reset Button 
+ResetBtn.addEventListener('click', Reset);
+
 // Below Function is used to validate the User AmountInput.
 function ValidateAmount(p) {
     var regExp = /^[0-9]*\.?[0-9]*$/;  //A Global Search for numbers that are not from 0 to 9;
@@ -37,7 +40,6 @@ function ValidateValue(x) {
     var RegExp = /^[0-9]/;  //A Global Search for numbers that are not from 0 to 9; means no character.
     return x.match(RegExp)
 }
-
 
 // Function For AmountInput 
 function Billvalue() {
@@ -121,10 +123,19 @@ function NumberofPeople() {
 
 // Function For Calculating the tip 
 function calculateTip() {
-    let TipAmount = billValue * TipValue / NumberPeople;
-    let TotalAmount = billValue + (billValue * TipValue);
-    TipPerson.innerHTML = '$' + TipAmount.toFixed(2);
-    TotalPerson.innerHTML = '$' + TotalAmount.toFixed(2);
+        let TipAmount = billValue * TipValue / NumberPeople;
+        let TotalAmount = billValue + (billValue * TipValue);
+        TipPerson.innerHTML = '$' + TipAmount.toFixed(2);
+        TotalPerson.innerHTML = '$' + TotalAmount.toFixed(2);
+}
+
+// Function For Reset 
+function Reset() {
+    TipsBtn.forEach(btn => {
+        btn.classList.remove('btn-active')
+    })
+    TipPerson.innerHTML = '$0.00';
+    TotalPerson.innerHTML = '$0.00';
 }
 
 // For Dark Mode Theme Toggler 
@@ -132,13 +143,13 @@ let DarkMode = localStorage.getItem('darkMode');
 const ThemeBtn = document.querySelector('[data-theme]');
 
 const EnableDarkMode = () => {
-    themeBtn.innerHTML = 'Dark';
+    ThemeBtn.innerHTML = 'Dark';
     document.body.classList.add('Darkmode');
     localStorage.setItem('darkMode', 'enabled');
 }
 
 const DisableDarkMode = () => {
-    themeBtn.innerHTML = 'Light';
+    ThemeBtn.innerHTML = 'Light';
     document.body.classList.remove('Darkmode');
     localStorage.setItem('darkMode', 'disabled');
 }
@@ -148,7 +159,7 @@ if(DarkMode == 'enabled') {
 }
 
 ThemeBtn.addEventListener('click', ()=> {
-    darkMode = localStorage.getItem('darkMode');
+    DarkMode = localStorage.getItem('darkMode');
     if(DarkMode == 'enabled') {
         DisableDarkMode();
     } else {
@@ -175,4 +186,4 @@ RippleBtn.forEach((ripple) => {
         }, 10000);
       
     })
-})
+});
