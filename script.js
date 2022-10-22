@@ -155,3 +155,24 @@ ThemeBtn.addEventListener('click', ()=> {
         EnableDarkMode();
     }
 });
+
+// Button Ripple Effect 
+const RippleBtn = document.querySelectorAll(".ripple");
+
+RippleBtn.forEach((ripple) => {
+    ripple.addEventListener("click", function(e) {
+        console.log("Ripple Effect is here");
+        let x = e.clientX - e.target.offsetLeft;
+        let y = e.clientY - e.target.offsetTop;
+    
+        let ripples = document.createElement('span');
+        ripples.style.left = x + 'px';
+        ripples.style.top = y + 'px';
+        this.appendChild(ripples);
+    
+        setTimeout(() => {
+          ripples.remove()
+        }, 10000);
+      
+    })
+})
