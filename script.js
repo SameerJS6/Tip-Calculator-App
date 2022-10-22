@@ -16,6 +16,13 @@ let NumberPeople = '';
 // User Amount Input 
 AmountInput.addEventListener('input', Billvalue);
 
+// Tips Button 
+TipsBtn.forEach(btn => {
+    btn.addEventListener('click', Handle);
+});
+
+// Custom User Tip 
+CustomTips.addEventListener('input', CustomTipValue);
 
 // Below Function is used to validate the User AmountInput.
 function ValidateAmount(p) {
@@ -23,6 +30,10 @@ function ValidateAmount(p) {
     return p.match(regExp)
 }
 
+function ValidateValue(x) {
+    var RegExp = /^[0-9]/;  //A Global Search for numbers that are not from 0 to 9; means no character.
+    return x.match(RegExp)
+}
 
 
 // Function For AmountInput 
@@ -43,3 +54,38 @@ function Billvalue() {
     // console.log(billValue);
 }
 
+// Function For Tips Button
+function Handle(event) {
+    TipsBtn.forEach(btn => {
+        // Removing the Active class from button 
+        btn.classList.remove('btn-active');
+
+        // Setting the active class in Button 
+        if(event.target.value == btn.value) {
+            btn.classList.add('btn-active')
+            // console.log(event.target.value);
+            // console.log(btn.value);
+            TipValue = parseFloat(btn.value)
+        }
+        CustomTips.value = '';
+        calculateTip();
+    })
+}
+
+// Function For Tips Button
+function CustomTipValue() {
+    if(ValidateValue(CustomTips.value)) {
+        console.log("Tip Valid");
+    } else {
+        console.log("Tip Invalid");
+        CustomTips.value = CustomTips.value.substring(0, CustomTips.value.length-1);
+    }
+    // Removing the Active class from tips Button 
+    TipsBtn.forEach(btn => {
+        btn.classList.remove('btn-active')
+    });
+
+    TipValue = parseFloat(CustomTips.value/100);
+    calculateTip();
+    // console.log(TipValue);
+}
