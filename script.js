@@ -1,62 +1,45 @@
 const AmountInput = document.querySelector('[data-user-input');
-const Tips = document.querySelectorAll('[data-tip]');
-const CustomTip = document.querySelector('[data-custom-tip]');
-const NoPeople = document.querySelector('[data-no-of-person]');
+const TipsBtn = document.querySelectorAll('[data-tip]');
+const CustomTips = document.querySelector('[data-custom-tip]');
+const People = document.querySelector('[data-no-of-person]');
+const Errors = document.querySelector('[data-error-message]')
+const NoPeopleDiv = document.querySelector('.people-inputs')
 const TipPerson = document.querySelector('[data-tip-per-person]');
 const TotalPerson = document.querySelector('[data-total-per-person]');
 const ResetBtn = document.querySelector('[data-reset]');
-const Errors = document.querySelector('[data-error-message]')
-const NoPeopleDiv = document.querySelector('.people-inputs')
 
 
-// For Dark Theme Toggle 
-let darkMode = localStorage.getItem('darkMode');
-const themeBtn = document.querySelector("[data-theme]");
+let billValue = '';
+let TipValue = '';
+let NumberPeople = '';
 
-const EnableDarkMode = () => {
-    themeBtn.innerHTML = "Dark"
-    localStorage.setItem('darkMode', 'enabled');
-    document.body.classList.add('Darkmode');
+// User Amount Input 
+AmountInput.addEventListener('input', Billvalue);
+
+
+// Below Function is used to validate the User AmountInput.
+function ValidateAmount(p) {
+    var regExp = /^[0-9]*\.?[0-9]*$/;  //A Global Search for numbers that are not from 0 to 9;
+    return p.match(regExp)
 }
 
-const DisableDarkMode = () => {
-    themeBtn.innerHTML = "Light"
-    localStorage.setItem("darkMode", 'disabled');
-    document.body.classList.remove("Darkmode");
-}   
 
-if (darkMode == 'enabled') {
-    EnableDarkMode();
-}
 
-themeBtn.addEventListener('click', ()=> {
-    darkMode = localStorage.getItem('darkMode')
-    if(darkMode == "enabled") {
-        DisableDarkMode();
-        console.log(darkMode)
-    } else {
-        EnableDarkMode();
+// Function For AmountInput 
+function Billvalue() {
+    // Replaces the user entered ',' into '.' 
+    if(AmountInput.value.includes(',')) {
+        AmountInput.value = AmountInput.value.replace(',', '.');
     }
-});
+    // Prevents user to enter character in AmountInput 
+    if(ValidateAmount(AmountInput.value)) {
+        console.log("valid");
+    }else {
+        console.log("Invalid");
+        AmountInput.value = AmountInput.value.substring(0, AmountInput.value.length-1);  //Basically extracting all the strings or character entered by user in AmountInput.
+    }
+    billValue = parseFloat(AmountInput.value);
+    calculateTip();
+    // console.log(billValue);
+}
 
-// For Button Ripple Effect 
-
-const RippleBtn = document.querySelectorAll(".ripple");
-
-RippleBtn.forEach((ripple) => {
-    ripple.addEventListener("click", function(e) {
-        console.log("Ripple Effect is here");
-        let x = e.clientX - e.target.offsetLeft;
-        let y = e.clientY - e.target.offsetTop;
-    
-        let ripples = document.createElement('span');
-        ripples.style.left = x + 'px';
-        ripples.style.top = y + 'px';
-        this.appendChild(ripples);
-    
-        setTimeout(() => {
-          ripples.remove()
-        }, 10000);
-      
-    })
-})
