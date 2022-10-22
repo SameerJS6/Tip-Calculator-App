@@ -129,7 +129,7 @@ function calculateTip() {
         TotalPerson.innerHTML = '$' + TotalAmount.toFixed(2);
 }
 
-// Function For Reset 
+// Function For Reset INCOMPLETE IT IS.
 function Reset() {
     TipsBtn.forEach(btn => {
         btn.classList.remove('btn-active')
