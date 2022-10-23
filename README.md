@@ -1,6 +1,6 @@
 # SplitTer - Tip Calculator App 
 
-This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX).
+This is a solution to the [Tip Calculator App](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX).
 
 ## Table of contents
 
@@ -29,10 +29,12 @@ Users should be able to:
    - Add the Dark Mode Theme Toggle(A LocalStorage One).
    - If Number of People is 0, then don't process further.
    - Add Animation and Hover to make it more user Attractive.
+   - Add A Button Ripple Effect too.
+   - Add a Animated Wave Background.
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Design Preview For the Tip Calculator App](./Preview.png)
 
 
 ### Links
@@ -41,6 +43,22 @@ Users should be able to:
 - Live Site URL: [https://tip-calculator-singh.netlify.app/]
 
 ## My process
+
+- So, the First step was to analyze the task and divide it into sub-task.
+- At first, I thought this will be easy as I had already built a Calculator but I was Wrong.
+- Anyway, Started it up by setting up the custom properties for (Colors, Background, Dark Mode - Colors, Font-size, Font-weight, Transition, Font-Family, etc, And Some Utility Classes.)
+- Once, the custom properties were done, started constructing the HTML layout and styling it.
+- It took nearly 2-2.5 hours to finish the complete Responsive Design of the Calculator. Excluding the Dark Theme Mode Colors.
+- Then, Started with the JavaScript Functionality and thought it will be easy, but it wasn't at all, and panicked at the Start.
+- So, Finished the day by writing the Dark Mode Toggler(A LocalStorage One) and the Ripple Button Effect.
+- Next Day, Started with the First step i.e dividing the Bigger tasks into Smaller ones and tackling them, so Wrote the Function for User Amount Input and Validate it and then one by one did every single Functionality.
+- After all the basic functionality was done, then started with CSS One more time but this time with Animation and Hovers.
+- Animated the whole Calculator and Added all the necessary hover effects in order to make it more interactive.
+- Then, Started Finding the Colors for Dark Mode and Came up with this Material Design (Green) by Going with Material Design (Google) And Implementing it.
+- Then, I thought that was it but felt like something is missing, so I remember that a few days ago I saw an animated wave background and it looked Pretty Cool.
+- So, I decided to Implement it in this one, so I did and with that Added.
+- The whole process of building this so-thought-easy project came to an end.
+            -Thank You...!  (It Was Hard Trust Me)
 
 ### Built with
 
@@ -54,33 +72,31 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+- Learned a Lot about, 
+    - Picking up Colors.
+    - Modern UI's Look and Feel.
+    - logic building in javascript.
+    - Advanced Animations and Hovers in CSS.
+    - Javascript Functions and how to use them properly and also about writing clean and reusable code in javascript.
 
-To see how you can add code snippets, see below:
+Also learned about this Function, see below:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+function Validate(j) {
+  var RegExp = /^[0-9]/;  
+  return j.match(RegExp); 
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
+- The Above Function is a Global Search for Numbers that are not from 0 to 9.
 
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+- Obviously, learn more about JavaScript Functions and Logic Solving Problems.
+- And last not but least, Focus will be on Writing a Clean, Reusable, and Readable Program. 
+- Surely, Will Continue the journey to learn more about CSS Animation and How to make it more Interactive.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
 
 ## Author
 
@@ -91,6 +107,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 - Credits to 
   - Google
-  - StackFlow
   - Youtube 
-for helping me throughout this project.
+  - StackFlow
+  - ColorSpace
+  - Material Design
+For helping me throughout this project.
