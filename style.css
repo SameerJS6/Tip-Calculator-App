@@ -2,13 +2,21 @@
 /* Custom Properties  */
 :root {
     --primary-400: hsl(172, 67%, 45%);
-    --secondary-400: hsl(183, 100%, 15%);
+    --secondary-400: hsl(183, 100%, 15%); 
     --neutral-100: hsl(189, 41%, 97%);
     --neutral-200: hsl(185, 41%, 84%);
-    --text-100: hsl(184, 14%, 56%);
-    --text-200: hsl(186, 14%, 43%);
+    --text-100: #7f9c9f;
+    --text-200: #5e7a7d;
     --text-error: red;
-    --white: hsl(0, 0%, 100%);
+    --box-bg: hsl(0, 0%, 100%);
+
+    --logo: #3D6666;
+    --svg-fill: #9EBBBD; 
+    --dollar-fill: #FEB822; 
+    --input-border: hsl(172, 67%, 45%);
+    --tip-text: hsl(183, 100%, 15%);
+    --tip-hover: hsl(172, 67%, 45%);
+    --ripple-effect: hsl(0, 0%, 100%);
 
     --transition-1s: all 1s ease;
     --transition-1-5s: all 1.5s ease;
@@ -24,13 +32,24 @@
     --fw-700: 700;
 }
 .Darkmode {
-     --primary-400: hsl(172, 67%, 45%);
-    --secondary-400: hsl(183, 100%, 15%);
-    --neutral-100: hsl(189, 41%, 97%);
-    --neutral-200: hsl(183, 100%, 15%);
-    --text-100: hsl(184, 14%, 56%);
-    --text-200: hsl(186, 14%, 43%);
+     --primary-400: #1F1F1F;
+    --secondary-400: #D7FC70;
+    --neutral-100: #2B2B2B;
+    --neutral-200: #111111;
+    --text-100: #656465;
+    --text-200: #FFFFFF;
+    --text-error: #c62828;
+    --box-bg: #1F1F1F;
+
+    --logo: #FFFFFF;
+    --svg-fill: #FFFFFF; 
+    --dollar-fill: #F9F871; 
+    --input-border: #D7FC70;
+    --tip-text: var(--primary-400);
+    --tip-hover: #FDFDFD;
+    --ripple-effect: #1F1F1F;
 }
+
 /* Placehoader  */
 ::placeholder {
     color: var(--secondary-400);
@@ -131,13 +150,37 @@ header {
     justify-content: space-between;
 }
 
+.logo {
+    fill: var(--logo);
+    transition: var(--transition-1s);
+}
+
 /* Theme toggler button  */
 .theme-toggle {
     border: none;
     cursor: pointer;
+    color: var(--logo);
     border-radius: 0.35rem;
     padding: 0.25rem .5rem;
     transition: var(--transition-1s);
+}
+
+/* SVGs  */
+.inputs svg {
+    fill: var(--svg-fill);
+    transform: scale(1.2);
+    transition: all .5s ease-out;
+}
+.inputs:hover svg {
+    transform: scale(1.25);
+    fill: var(--secondary-400);
+}
+.inputs:focus-within .dollar {
+    fill: var(--dollar-fill); 
+}
+.inputs:focus-within .people {
+    fill: var(--input-border);
+    transform: scale(1.25);
 }
 
 /* Main  */
@@ -148,7 +191,7 @@ main {
     display: grid;
     max-width: 800px;
     margin-block-start: 2rem;
-    background: var(--white);
+    background: var(--box-bg);
     padding: 2rem 2rem 1.5rem;
     transition: var(--transition-1s);
     border-radius: 1.25rem 1.25rem 0rem 0rem;
@@ -220,7 +263,7 @@ main {
     box-shadow: 0 5px 15px rgba(22, 22, 22, 0.05);
 }
 .inputs:focus-within {
-    border: 3px solid var(--primary-400);
+    border: 3px solid var(--input-border);
     transform: scale(0.99) translateY(-6px);
     box-shadow: 0 5px 15px rgba(22, 22, 22, 0.05);
 }
@@ -260,12 +303,12 @@ main {
     background-color: var(--neutral-100);
 }
 .buttons-grid > input:hover {
-    border: 2px solid var(--primary-400);
+    border: 2px solid var(--input-border);
     transform: scale(1.02) translateY(2px);
     box-shadow: 0 5px 10px rgba(22, 22, 22, 0.025);
 }
 .buttons-grid > input:focus-within {
-    border: 3px solid var(--primary-400);
+    border: 3px solid var(--input-border);
     transform: scale(0.99) translateY(-2px);
     box-shadow: 0 5px 15px rgba(22, 22, 22, 0.05);
 }
@@ -281,7 +324,7 @@ main {
 .btn {
     border: none;
     cursor: pointer;
-    color: var(--white);
+    color: var(--box-bg);
     border-radius: 0.35rem;
     padding-block: 0.25rem;
     transition: all .5s ease;
@@ -298,8 +341,8 @@ main {
 }
 
 .btn:is(:hover, :focus-within) {
-    color: var(--secondary-400);
-    background-color: var(--primary-400);
+    color: var(--tip-text);
+    background-color: var(--tip-hover);
 }
 .btn:hover {
     transform: scale(1.04) translateY(-5px);
@@ -311,8 +354,8 @@ main {
     box-shadow: 0 5px 15px rgb(22, 22, 22, 0.07);
 }
 .btn-active {
-    color: var(--secondary-400);
-    background-color: var(--primary-400);
+    color: var(--tip-text);
+    background-color: var(--tip-hover);
     transform: scale(1.01) translateY(-2px);
     box-shadow: 0 5px 15px rgb(22, 22, 22, 0.07);
 }
@@ -351,6 +394,7 @@ main {
     border-radius: 1rem;
     flex-direction: column;
     justify-content: space-between;
+    transition: var(--transition-1s);
     background-color: var(--secondary-400);
 }
 @media (min-width: 45em) {
@@ -364,6 +408,11 @@ main {
     align-items: flex-start;
     color: var(--primary-400);
     justify-content: space-between;
+    transition: var(--transition-1s);
+}
+.amount-title {
+    color: var(--text-100);
+    transition: var(--transition-1s);
 }
 .amount-title h3 {
     color: var(--neutral-100);
@@ -371,9 +420,6 @@ main {
 }
 .amount-title h3 > h4 {
     font-size: var(--size-300);
-}
-.amount-title {
-    color: var(--text-100);
 }
 /* .amount-number {
     font-size: var(--size-500);
@@ -405,10 +451,10 @@ main {
     overflow: hidden;
 }
 span{
-    background: white;
     border-radius: 50%;
     position: absolute;
     pointer-events: none;
+    background: var(--ripple-effect);
     transform: translate(-50%, -50%);
     animation: animate 1s linear;
   }
