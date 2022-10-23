@@ -57,7 +57,10 @@ function Billvalue() {
     if(AmountInput.value == 0) return
     billValue = parseFloat(AmountInput.value);
     calculateTip();
+    resetOpa();
     // console.log(billValue);
+
+  
 }
 
 // Function For Tips Button
@@ -75,6 +78,7 @@ function Handle(event) {
         }
         CustomTips.value = '';
         calculateTip();
+        resetOpa();
     })
 }
 
@@ -93,6 +97,7 @@ function CustomTipValue() {
 
     TipValue = parseFloat(CustomTips.value/100);
     calculateTip();
+    resetOpa();
     // console.log(TipValue);
 }
 
@@ -119,6 +124,7 @@ function NumberofPeople() {
         NoPeopleDiv.classList.remove('error-bg');
     }
     calculateTip();
+    resetOpa();
     // console.log(People.value);
 }
 
@@ -130,19 +136,30 @@ function calculateTip() {
         TotalPerson.innerHTML = '$' + TotalAmount.toFixed(2);
 }
 
+// Function For Reset Button Active State
+function resetOpa() {
+    if(AmountInput.value != 0 || TipValue != 0 || NumberPeople != 0) {
+        ResetBtn.style.opacity = '1';
+    }else {
+        ResetBtn.style.opacity = '0.25'
+    }
+}
+
 // Function For Reset (INCOMPLETE IT IS.)
 function Reset() {
     AmountInput.value = '';
     Billvalue();
-
+    
     People.value = '';
     NumberofPeople();
-
+    
     TipsBtn[0].click();
     
     TipPerson.innerHTML = '$0.00';
     TotalPerson.innerHTML = '$0.00';
+    ResetBtn.style.opacity = '0.25'
 }
+
 
 
 
