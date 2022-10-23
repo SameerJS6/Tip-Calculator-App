@@ -1,0 +1,140 @@
+main {
+  animation: scaling 1.25s cubic-bezier(0.25, 0.1, 0.08, 1);
+}
+
+/* Animations and animate Utility classes*/
+.opacity {
+  animation: Opacity 1.5s ease;
+}
+
+@keyframes Opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.scaleUp {
+  animation: scaleUp 1.5s ease;
+}
+
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(80px);
+  }
+
+  50% {
+    transform: scale(1.05) translateY(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+.down {
+  animation: down 1.5s ease;
+}
+
+@keyframes down {
+  0% {
+    opacity: 0;
+    transform: translateY(150px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.scaling {
+  animation: scaling 1.5s ease;
+}
+
+@keyframes scaling {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) translateY(0px);
+  }
+
+  50% {
+    transform: scale(1.05) translateY(25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
+
+.leftIn {
+  animation: leftIn 1.5s ease;
+}
+
+@keyframes leftIn {
+  0% {
+    transform: translateX(-80px);
+  }
+
+  50% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.RightIn {
+  animation: RightIn 1.5s ease;
+}
+
+.comingDown {
+  animation: comingDown 1.5s cubic-bezier(0.29, 0.1, 0.18, 1.04);
+}
+
+@keyframes comingDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.comingUp {
+  animation: comingUp 1.5s cubic-bezier(0.29, 0.1, 0.18, 1.04);
+}
+
+@keyframes comingUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) translateY(80px);
+  }
+
+  50% {
+    transform: scale(1.1) translateY(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+  }
+}
