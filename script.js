@@ -117,11 +117,9 @@ function NumberofPeople() {
         NoPeopleDiv.setAttribute('data-error', 'true');
         setTimeout(() => {
             NoPeopleDiv.setAttribute('data-error', 'false');
-            NoPeopleDiv.classList.add('error-bg');
         }, 3000)
     }else {
         Errors.style.display = 'none';
-        NoPeopleDiv.classList.remove('error-bg');
     }
     calculateTip();
     resetOpa();
@@ -138,7 +136,7 @@ function calculateTip() {
 
 // Function For Reset Button Active State
 function resetOpa() {
-    if(AmountInput.value != 0 || TipValue != 0 || NumberPeople != 0) {
+    if(AmountInput.value != 0 || TipValue != 0 || People.value != 0) {
         ResetBtn.style.opacity = '1';
     }else {
         ResetBtn.style.opacity = '0.25'
