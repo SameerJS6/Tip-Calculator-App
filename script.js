@@ -54,6 +54,7 @@ function Billvalue() {
         console.log("Invalid");
         AmountInput.value = AmountInput.value.substring(0, AmountInput.value.length-1);  //Basically extracting all the strings or character entered by user in AmountInput.
     }
+    if(AmountInput.value == 0) return
     billValue = parseFloat(AmountInput.value);
     calculateTip();
     // console.log(billValue);
@@ -131,12 +132,21 @@ function calculateTip() {
 
 // Function For Reset (INCOMPLETE IT IS.)
 function Reset() {
-    TipsBtn.forEach(btn => {
-        btn.classList.remove('btn-active')
-    })
+    AmountInput.value = '';
+    Billvalue();
+
+    People.value = '';
+    NumberofPeople();
+
+    TipsBtn[0].click();
+    
     TipPerson.innerHTML = '$0.00';
     TotalPerson.innerHTML = '$0.00';
 }
+
+
+
+
 
 // For Dark Mode Theme Toggler 
 let DarkMode = localStorage.getItem('darkMode');
@@ -166,6 +176,12 @@ ThemeBtn.addEventListener('click', ()=> {
         EnableDarkMode();
     }
 });
+
+
+
+
+
+
 
 // Button Ripple Effect 
 const RippleBtn = document.querySelectorAll(".ripple");
