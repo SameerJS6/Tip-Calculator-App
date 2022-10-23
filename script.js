@@ -71,7 +71,7 @@ function Handle(event) {
             btn.classList.add('btn-active')
             // console.log(event.target.value);
             // console.log(btn.value);
-            TipValue = parseFloat(btn.value)
+            TipValue = parseFloat(btn.value);
         }
         CustomTips.value = '';
         calculateTip();
